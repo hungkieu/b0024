@@ -1,0 +1,29 @@
+<%- include("../header") %>
+
+<form action="/signup" method="post">
+  <label for="firstName">
+    <span>Tên</span>
+    <input type="text" name="firstName" id="firstName" />
+  </label>
+  <label for="lastName">
+    <span>Họ</span>
+    <input type="text" name="lastName" id="lastName" />
+  </label>
+  <label for="email">
+    <span>Email</span>
+    <input type="text" name="email" id="email" />
+  </label>
+  <label for="password">
+    <span>Mật khẩu</span>
+    <input type="password" name="password" id="password" />
+  </label>
+  <label for="passwordConfirmation">
+    <span>Mật khẩu</span>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation" />
+  </label>
+  <button type="submit">
+    Đăng ký
+  </button>
+</form>
+
+<%- include("../footer") %>

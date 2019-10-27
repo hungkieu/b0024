@@ -1,0 +1,17 @@
+<%- include("../header") %>
+
+<form action="/signin" method="post">
+  <label for="email">
+    <span>Email</span>
+    <input type="text" name="email" id="email" />
+  </label>
+  <label for="password">
+    <span>Mật khẩu</span>
+    <input type="password" name="password" id="password" />
+  </label>
+  <button type="submit">
+    Đăng nhập
+  </button>
+</form>
+
+<%- include("../footer") %>

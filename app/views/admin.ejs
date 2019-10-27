@@ -1,0 +1,21 @@
+<%- include("header") %>
+
+<div class="container">
+  <div class="grid-container">
+    <div class="gird-item menu">
+      <ul>
+        <li>
+          Người dùng
+        </li>
+        <li>
+          Bài viết
+        </li>
+      </ul>
+    </div>
+    <div class="gird-item">
+      <%- include(yield) %>
+    </div>
+  </div>
+</div>
+
+<%- include("footer") %>
