@@ -77,6 +77,14 @@ router.get('/admin/posts', getUser, (req, res) => {
   res.render('admin', { yield: './posts/index' });
 });
 
+router.get('/admin/posts/new', getUser, (req, res) => {
+  res.render('admin', { yield: './posts/new' });
+});
+
+router.get('/admin/posts/:id/edit', getUser, (req, res) => {
+  res.render('admin', { yield: './posts/edit' });
+});
+
 router.get('/signout', (req, res) => {
   res.clearCookie('_id');
   res.redirect('/');
