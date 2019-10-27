@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="gird-container">
+    <div class="grid-item">
+      <form id="createPost" action="/admin/posts/create" method="post">
+        <label for="title">
+          <input type="text" name="title" id="title">
+        </label>
+        <label for="content">
+          <div id="toolbar">
+            <button data-code="b">B</button>
+            <button data-code="i">I</button>
+            <button data-code="h1">H1</button>
+            <button data-code="h2">H2</button>
+            <button data-code="h3">H3</button>
+            <button data-code="p">P</button>
+          </div>
+          <div id="editor" contenteditable></div>
+        </label>
+        <button type="submit">
+          Đăng bài
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

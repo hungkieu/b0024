@@ -12,3 +12,11 @@ body, input, button {
   font-size: 16px;
   font-weight: 400;
 }
+
+#editor {
+  border: 1px solid #333;
+  padding: 8px;
+  width: 100%;
+  max-width: 960px;
+  min-height: 400px;
+}
