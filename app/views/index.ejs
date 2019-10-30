@@ -1,25 +1,64 @@
 <%- include("header") %>
+ 
+<% if (user) { %>
+  <p>
+    <%= user.email %>
+  </p>
+<% } %>
 
 <header>
-  <div class="container header">
-    <div class="item w960">
-      <div class="container">
-        <div class="item">
+  <div class="container">
+    <div class="container w-768">
+      <div class="item title">
+        <a href="#">
           B0024
-        </div>
-        <div class="item">
-          <a href="#" class="btn">
-            Bài viết
-          </a>
-        </div>
+        </a>
+      </div>
+      <div class="tiem posts">
+        <a href="#" class="active">
+          Posts
+        </a>
+      </div>
+      <div class="item projects">
+        <a href="#">
+          Projects
+        </a>
       </div>
     </div>
   </div>
-</header>
+<header>
 
 <div class="container">
-  <div class="item w960">
-    INDEX
+  <div class="container start column w-768">
+    <div class="item">
+      <h1>Posts</h1>
+    </div>
+    <div class="item">
+      <form action="" class="form">
+        <div class="container">
+          <input type="text" placeholder="Search" class="input">
+          <button class="btn primary ml">...</button>
+        </div>
+      </form>
+    </div>
+    <div class="item">
+      <div class="container column">
+        <a href="#" class="post-card">
+          <div class="thumbnail">
+            <img src="https://i0.wp.com/storage.googleapis.com/blog-images-backup/1*3SVfBkNZI2f-sspiq59xcw.png?resize=391%2C321&ssl=1" alt="">
+          </div>
+          <div class="title">REACT FOR FUTURE</div>
+          <div class="date">26 thang 7, 2019</div>
+        </a>
+        <a href="#" class="post-card">
+          <div class="thumbnail">
+            <img src="https://i0.wp.com/storage.googleapis.com/blog-images-backup/1*3SVfBkNZI2f-sspiq59xcw.png?resize=391%2C321&ssl=1" alt="">
+          </div>
+          <div class="title">REACT FOR FUTURE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE LONG TITLE</div>
+          <div class="date">26 thang 7, 2019</div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 

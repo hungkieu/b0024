@@ -1,29 +1,39 @@
 <%- include("../header") %>
 
-<form action="/signup" method="post">
-  <label for="firstName">
-    <span>Tên</span>
-    <input type="text" name="firstName" id="firstName" />
-  </label>
-  <label for="lastName">
-    <span>Họ</span>
-    <input type="text" name="lastName" id="lastName" />
-  </label>
-  <label for="email">
-    <span>Email</span>
-    <input type="text" name="email" id="email" />
-  </label>
-  <label for="password">
-    <span>Mật khẩu</span>
-    <input type="password" name="password" id="password" />
-  </label>
-  <label for="passwordConfirmation">
-    <span>Mật khẩu</span>
-    <input type="password" name="passwordConfirmation" id="passwordConfirmation" />
-  </label>
-  <button type="submit">
-    Đăng ký
-  </button>
+<form action="/signup" method="post" class="container form mb-all">
+  <div class="container column w-768">
+    <div class="item">
+      <h1>
+        Tạo tài khoản
+      </h1>
+    </div>
+    <div class="item">
+      <input type="text" name="firstName" id="firstName" class="input"
+        placeholder="Tên" />
+    </div>
+    <div class="item">
+      <input type="text" name="lastName" id="lastName" class="input"
+        placeholder="Họ" />
+    </div>
+    <div class="item">
+      <input type="email" name="email" id="email" class="input"
+        placeholder="Email" />
+    </div>
+    <div class="item">
+      <input type="password" name="password" id="password" class="input"
+        placeholder="Mật khẩu" />
+    </div>
+    <div class="item">
+      <input type="password" name="passwordConfirmation"
+        id="passwordConfirmation" class="input"
+        placeholder="Xác nhận mật khẩu" />
+    </div>
+    <div class="item">
+      <button type="submit" class="btn primary">
+        Đăng ký
+      </button>
+    </div>
+  </div>
 </form>
 
 <%- include("../footer") %>
