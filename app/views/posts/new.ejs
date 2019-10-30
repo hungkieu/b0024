@@ -1,25 +1,32 @@
-<div class="container">
-  <div class="gird-container">
-    <div class="grid-item">
-      <form id="createPost" action="/admin/posts/create" method="post">
-        <label for="title">
-          <input type="text" name="title" id="title">
-        </label>
-        <label for="content">
-          <div id="toolbar">
-            <button data-code="b">B</button>
-            <button data-code="i">I</button>
-            <button data-code="h1">H1</button>
-            <button data-code="h2">H2</button>
-            <button data-code="h3">H3</button>
-            <button data-code="p">P</button>
-          </div>
-          <div id="editor" contenteditable></div>
-        </label>
-        <button type="submit">
-          Đăng bài
-        </button>
-      </form>
-    </div>
+
+<div class="gird-container">
+  <div class="grid-item">
+    <form id="createPost" action="/admin/posts/create" method="post">
+      <label for="title">
+        <input type="text" name="title" id="title">
+      </label>
+      <label for="editor">
+        <div id="toolbar">
+          <button data-code="b">B</button>
+          <button data-code="i">I</button>
+          <button data-code="h1">H1</button>
+          <button data-code="h2">H2</button>
+          <button data-code="h3">H3</button>
+          <button data-code="p">P</button>
+          <button data-code="link">Link</button>
+          <button data-code="unlink">UnLink</button>
+        </div>
+        <div id="editor" contenteditable></div>
+      </label>
+      <label id="status">
+        <select id="status" name="status">
+          <option value="0">Nháp</option>
+          <option value="0">Công khai</option>
+        </select>
+      </label>
+      <button type="submit" id="submitPost">
+        Đăng bài
+      </button>
+    </form>
   </div>
 </div>

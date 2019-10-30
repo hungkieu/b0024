@@ -1,5 +1,10 @@
 * {
+  box-sizing: border-box;
   margin: 0;
+}
+
+p {
+  margin: 8px 0;
 }
 
 html, body {
@@ -19,4 +24,35 @@ body, input, button {
   width: 100%;
   max-width: 960px;
   min-height: 400px;
+}
+
+.container {
+  width: 100%;
+  padding: 16px 0;
+  justify-content: center;
+  display: flex;
+}
+
+.item {
+  width: 100%;
+}
+
+.w960 {
+  width: 100%;
+  max-width: 960px;
+}
+
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+form label span {
+  display: inline-block;
+  width: 150px;
 }
