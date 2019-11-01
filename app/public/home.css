@@ -1,0 +1,13 @@
+.admin-toolbar {
+  background: #5588ff;
+  color: white;
+}
+
+.admin-toolbar a {
+  color: white;
+  margin: 0 8px;
+}
+
+.admin-toolbar > .container {
+  justify-content: flex-end;
+}

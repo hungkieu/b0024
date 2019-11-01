@@ -15,8 +15,7 @@ const getUser = (req, res, next) => {
 
   User.findOne({
     _id: req.cookies._id
-  })
-    .then(user => {
+  }).then(user => {
       if (user) {
         user.password = undefined;
         res.locals.user = user;

@@ -11,6 +11,11 @@ const PostShow = (req, res, next) => {
     });
 };
 
+const PostNew = (req, res) => {
+  res.render('posts/new');
+};
+
 module.exports = {
   PostShow,
+  PostNew,
 };

@@ -17,9 +17,15 @@ const {
   AuthSignOut,
 } = require('./middlewares/auth');
 
-const { PostShow } = require('./middlewares/posts');
+const {
+  PostShow,
+  PostNew,
+} = require('./middlewares/posts');
 
 const router = express.Router();
+
+router.use(defaultLocals);
+router.use(getUser);
 
 // Home
 router.get('/', HomeIndex);
@@ -28,12 +34,14 @@ router.get('/', HomeIndex);
 router.get('/signin', AuthSignIn);
 router.post('/signin', AuthCreateSession);
 router.get('/signup', AuthSignUp);
-router.post('/signup1', AuthCreateUser);
+router.post('/signup', AuthCreateUser);
 router.get('/signout', AuthSignOut);
 
 // Posts
 router.get('/p/:flag', PostShow);
+router.get('/posts/new', PostNew);
 
+// admin
 router.get('/admin', getUser, (req, res) => {
   res.render('dashboard/index');
 });
