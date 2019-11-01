@@ -14,6 +14,9 @@ const PostSchema = new Schema({
   status: {
     type: String,
   },
+  flag: {
+    type: String,
+  },
 }, {
   timestamps: true,
 });

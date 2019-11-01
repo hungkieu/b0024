@@ -4,27 +4,31 @@ const AuthSignIn = (req, res) => {
   res.render('auth/signin');
 }
 
-const AuthCreateSession = async (req, res) => {
+const AuthCreateSession = (req, res, next) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  console.log(user);
-  if (
-    user &&
-    await User.authenticate(password, user.password)
-  ) {
-    res.cookie('_id', user.id);
-    res.redirect('/admin');
-  }
-  res.redirect('/');
+  User.findOne({ email })
+    .then(user => {
+      if (
+        user &&
+        User.authenticate(password, user.password)
+      ) {
+        res.cookie('_id', user.id);
+      }
+      res.redirect('/');
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
 }
 
 const AuthSignUp = (req, res) => {
   res.render('auth/signup');
 };
 
-const AuthCreateUser = async (req, res) => {
+const AuthCreateUser = (req, res, next) => {
   const {
-    fisrtName,
+    firstName,
     lastName,
     email,
     password,
@@ -32,22 +36,30 @@ const AuthCreateUser = async (req, res) => {
     passwordConfirmation,
   } = req.body;
 
-  try {
-    await User.create({
-      fisrtName,
-      lastName,
-      email,
-      password,
+  User.create({
+    firstName,
+    lastName,
+    email,
+    password,
+  })
+    .then(() => {
+      console.log(123123);
+      res.send('/signin');
+    })
+    .catch(error => {
+      next(error);
     });
-    res.redirect('/signin');
-  } catch (error) {
-    throw error;
-  }
+};
+
+const AuthSignOut = (req, res) => {
+  res.clearCookie('_id');
+  res.redirect('/');
 };
 
 module.exports = {
   AuthSignIn,
   AuthCreateSession,
   AuthSignUp,
-  AuthCreateUser
+  AuthCreateUser,
+  AuthSignOut,
 };

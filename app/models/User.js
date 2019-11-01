@@ -29,19 +29,22 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', function (next) {
   var user = this;
-  bcrypt.hash(user.password, 10).then((hashedPassword) => {
-    user.password = hashedPassword;
-    next();
-  }).catch((error) => {
-    next(error);
-  });
+  bcrypt.hash(user.password, 10)
+    .then((hashedPassword) => {
+      user.password = hashedPassword;
+      next();
+    })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
 });
 
-UserSchema.statics.authenticate = async (
+UserSchema.statics.authenticate = (
   password,
   hash,
 ) => {
-  return await bcrypt.compare(password, hash);
-}
+  return bcrypt.compareSync(password, hash);
+};
 
 module.exports = mongoose.model('users', UserSchema);
