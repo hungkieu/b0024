@@ -20,6 +20,7 @@ const {
 const {
   PostShow,
   PostNew,
+  PostCreate,
 } = require('./middlewares/posts');
 
 const router = express.Router();
@@ -40,6 +41,7 @@ router.get('/signout', AuthSignOut);
 // Posts
 router.get('/p/:flag', PostShow);
 router.get('/posts/new', PostNew);
+router.post('/posts/create', PostCreate);
 
 // admin
 router.get('/admin', getUser, (req, res) => {

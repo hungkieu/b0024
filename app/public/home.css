@@ -11,3 +11,19 @@
 .admin-toolbar > .container {
   justify-content: flex-end;
 }
+
+.postnew #content {
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  width: 100%;
+  min-height: 500px;
+  padding: 8px 16px;
+}
+
+.postnew {
+  padding-bottom: 24px;
+}
+
+.postnew .bar {
+  justify-content: flex-end;
+}

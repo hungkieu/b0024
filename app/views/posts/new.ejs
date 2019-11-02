@@ -1,32 +1,78 @@
+<%- include("../header") %>
 
-<div class="gird-container">
-  <div class="grid-item">
-    <form id="createPost" action="/admin/posts/create" method="post">
-      <label for="title">
-        <input type="text" name="title" id="title">
-      </label>
-      <label for="editor">
-        <div id="toolbar">
-          <button data-code="b">B</button>
-          <button data-code="i">I</button>
-          <button data-code="h1">H1</button>
-          <button data-code="h2">H2</button>
-          <button data-code="h3">H3</button>
-          <button data-code="p">P</button>
-          <button data-code="link">Link</button>
-          <button data-code="unlink">UnLink</button>
+<div class="container postnew">
+  <div class="container w-768">
+    <form class="form">
+      <div class="container column">
+        <div class="item">
+          <input type="text" id="title" placeholder="Tieu de" class="input">
         </div>
-        <div id="editor" contenteditable></div>
-      </label>
-      <label id="status">
-        <select id="status" name="status">
-          <option value="0">Nháp</option>
-          <option value="0">Công khai</option>
-        </select>
-      </label>
-      <button type="submit" id="submitPost">
-        Đăng bài
-      </button>
+        <div class="item">
+          <div class="container bar">
+            <div class="item">
+              <select id="status">
+                <option value="draft">Nhap</option>
+                <option value="publish">Cong khai</option>
+              </select>
+            </div>
+            <div class="item ml">
+              <button id="submit" class="btn primary">
+                Luu bai viet
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div id="content" contenteditable="true"></div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
+
+<script>
+  var _ = selector => document.querySelector(selector);
+  let title = _('#title');
+  let status = _('#status');
+  let content = _('#content');
+
+  const getPost = (...args) => {
+    const post = [...args].reduce((p, a) => {
+      p[a.id] = a.value || a.innerHTML;
+      return p;
+    }, {});
+
+    return post;
+  }
+
+  const submit = () => {
+    let url = '/posts/create';
+    let post = getPost(title, status, content);
+    let method = 'POST';
+
+    fetch(url, {
+      method,
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        console.log(res);
+        return res.json();
+      })
+      .then(data => {
+        window.location.href = data.flag;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  _('#submit').addEventListener('click', function(e) {
+    e.preventDefault();
+    submit();
+  });
+</script>
+
+<%- include("../footer") %>

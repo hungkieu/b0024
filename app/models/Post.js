@@ -21,4 +21,17 @@ const PostSchema = new Schema({
   timestamps: true,
 });
 
+const generateFlag = (title) => {
+  let flag = title.replace(/\s/g, '-');
+  flag = flag.toLowerCase();
+  flag += '-' + Date.now();
+  return flag;
+};
+
+PostSchema.pre('save', function (next) {
+  var post = this;
+  post.flag = generateFlag(post.title);
+  next();
+});
+
 module.exports = mongoose.model('posts', PostSchema);
